@@ -17,7 +17,7 @@ Model.gameSchema = new Schema({
 const GAME = mongoose.model('game', Model.gameSchema);
 
 Model.getGames = () => {
-  GAME.find({}, (err, games) => {
+  return await GAME.find({}, (err, games) => {
     assert.equal(err, null);
 
     console.log(`Get Games Model: ${games}`);
@@ -25,13 +25,38 @@ Model.getGames = () => {
   });
 }
 
-Model.getGame = (param) => {
-  GAME.find(param, (err, game) => {
+Model.getGame = param => {
+  return await GAME.find(param, (err, game) => {
     assert.equal(err, null);
 
     console.log(`Get Game Model: ${game}`);
     return game;
   });
+}
+
+Model.getGameById = id => {
+  return await GAME.findById(id, (err, game) => {
+    assert.equal(err, null);
+
+    console.log(`Get Game Model: ${game}`);
+    return game;
+  });
+}
+
+Model.setGame = (player1, player2) => {
+  let instance = new GAME();
+  instance.player1 = player1;
+  instance.player2 = player2;
+
+  instance.save(err => {
+    assert.equal(err, null);
+  });
+
+  return instance;
+}
+
+Model.updateGame = id => {
+
 }
 
 module.exports = Model
