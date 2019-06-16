@@ -7,4 +7,6 @@ router.get('/', (req, res, next) => { res.render('index', { title: 'Express' });
 
 router.get('/users', User.getUsers);
 
+router.get('/games', Game.getGames);
+
 module.exports = router;
