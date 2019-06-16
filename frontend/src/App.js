@@ -1,25 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import Game from './components/Game'
+import Record from './components/Record'
+import Round from './components/Round'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        {/* <Route component={ Root } ></Route> */}
+        <Route exact path={"/"} component={ Game } />
+        <Route path={"/records"} component={ Record } />
+        <Route path={"/round1"} component={ Round } />
+        <Route path={"/round2"} component={ Round } />
+        <Route path={"/round3"} component={ Round } />
+      </Switch>
+    </Router>
   );
 }
 
