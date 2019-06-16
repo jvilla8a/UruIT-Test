@@ -1,5 +1,6 @@
 const assert       = require('assert')
-const { Schema }   = require('mongoose')
+const mongoose     = require('mongoose')
+const { Schema }   = mongoose
 const { ObjectId } = Schema
 
 const Model = {}
@@ -17,46 +18,63 @@ Model.gameSchema = new Schema({
 const GAME = mongoose.model('game', Model.gameSchema);
 
 Model.getGames = () => {
-  return await GAME.find({}, (err, games) => {
-    assert.equal(err, null);
-
-    console.log(`Get Games Model: ${games}`);
-    return games;
+  return new Promise((resolve, reject) => {
+    GAME.find({}, (err, games) => {
+      assert.equal(err, null);
+  
+      console.log(`Get Games Model: ${games}`);
+      resolve(games);
+    });
   });
 }
 
 Model.getGame = param => {
-  return await GAME.find(param, (err, game) => {
-    assert.equal(err, null);
-
-    console.log(`Get Game Model: ${game}`);
-    return game;
+  return new Promise((resolve, reject) => {
+    GAME.find(param, (err, game) => {
+      assert.equal(err, null);
+  
+      console.log(`Get Game Model: ${game}`);
+      resolve(game);
+    });
   });
 }
 
 Model.getGameById = id => {
-  return await GAME.findById(id, (err, game) => {
-    assert.equal(err, null);
-
-    console.log(`Get Game Model: ${game}`);
-    return game;
+  return new Promise((resolve, reject) => {
+    GAME.findById(id, (err, game) => {
+      assert.equal(err, null);
+  
+      console.log(`Get Game Model: ${game}`);
+      resolve(game);
+    });
   });
 }
 
-Model.setGame = (player1, player2) => {
-  let instance = new GAME();
-  instance.player1 = player1;
-  instance.player2 = player2;
+Model.createGame = (player1, player2) => {
+  return new Promise((resolve, reject) => {
+    let game = new GAME();
+    game.player1 = player1;
+    game.player2 = player2;
 
-  instance.save(err => {
-    assert.equal(err, null);
+    game.save(err => {
+      assert.equal(err, null);
+    });
+
+    console.log(`Create Game Model: ${game}`);
+    resolve(game);
   });
-
-  return instance;
 }
 
-Model.updateGame = id => {
-
+Model.updateGame = (id, params) => {
+  return new Promise((resolve, reject) => {
+    GAME.updateOne(id, { $set: params }, (err, result) => {
+      assert.equal(err, null);
+      assert.equal(1, result.result.n);
+  
+      console.log(`Update Game Model: ${result}`);
+      resolve(result);
+    });
+  });
 }
 
 module.exports = Model
