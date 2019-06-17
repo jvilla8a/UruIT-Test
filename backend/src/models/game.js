@@ -1,7 +1,6 @@
 const assert       = require('assert')
 const mongoose     = require('mongoose')
 const { Schema }   = mongoose
-const { ObjectId } = Schema
 
 const Model = {}
 
@@ -27,28 +26,6 @@ Model.getGames = () => {
   });
 }
 
-Model.getGame = param => {
-  return new Promise((resolve, reject) => {
-    GAME.find(param, (err, game) => {
-      assert.equal(err, null);
-  
-      console.log(`Get Game Model: ${game}`);
-      resolve(game);
-    });
-  });
-}
-
-Model.getGameById = id => {
-  return new Promise((resolve, reject) => {
-    GAME.findById(id, (err, game) => {
-      assert.equal(err, null);
-  
-      console.log(`Get Game Model: ${game}`);
-      resolve(game);
-    });
-  });
-}
-
 Model.createGame = (data) => {
   return new Promise((resolve, reject) => {
     let game = new GAME();
@@ -65,18 +42,6 @@ Model.createGame = (data) => {
     });
 
     resolve(game);
-  });
-}
-
-Model.updateGame = (id, params) => {
-  return new Promise((resolve, reject) => {
-    GAME.updateOne(id, { $set: params }, (err, result) => {
-      assert.equal(err, null);
-      assert.equal(1, result.result.n);
-  
-      console.log(`Update Game Model: ${result}`);
-      resolve(result);
-    });
   });
 }
 

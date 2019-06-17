@@ -17,15 +17,12 @@ class Move extends React.Component {
     switch(p1Move){
       case "rock":
         if (p2Move === "paper") { winner = "player2"; }
-        // if (p2Move === "rock") { winner = "tie"; }
         break;
       case "paper":
         if (p2Move === "scissors") { winner = "player2"; }
-        // if (p2Move === "paper") { winner = "tie"; }
         break;
       case "scissors":
         if (p2Move === "rock") { winner = "player2"; }
-        // if (p2Move === "scissors") { winner = "tie"; }
         break;
       default:
         break;
