@@ -1,6 +1,8 @@
 import React                    from 'react'
 import { createBrowserHistory } from 'history';
 
+import './move.css'
+
 class Move extends React.Component {
   constructor(props) {
     super(props);
@@ -106,18 +108,22 @@ class Move extends React.Component {
 
   render(){
     return(
-      <div>
+      <div className="Move">
         <h3> {this.props.title} </h3>
         <form onSubmit={this.handlePlayerMove} onChange={this.handleMoveChange} >
-          <label htmlFor="playerMove">Select Move: </label>
-          <select name="playerMove">
-            <option value="" disabled selected>Pick one...</option>
-            <option value="rock">Rock</option>
-            <option value="paper">Paper</option>
-            <option value="scissors">Scissors</option>
-          </select>
-          <hr/>
-          <input type="submit" value="Send" />
+          <div className="inputContainer">
+            <label htmlFor="playerMove">Select Move: </label>
+            <select name="playerMove">
+              <option value="" disabled selected>Pick one...</option>
+              <option value="rock">Rock</option>
+              <option value="paper">Paper</option>
+              <option value="scissors">Scissors</option>
+            </select>
+          </div>
+
+          <div className="buttonContainer">
+            <input className="button" type="submit" value="Send" />
+          </div>
         </form>
       </div>
     );

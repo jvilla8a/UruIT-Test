@@ -1,6 +1,4 @@
-nav { background-color: gray; width: 100%; }
-nav ul { margin: 0px; height: 60px; }
-nav ul li { display: inline; margin-right: 10px; }
-nav ul li a { color: aliceblue; text-decoration: none; }
-
-.active { color: red; text-decoration: underline; }
+nav { background-color: #274C77; width: 100%; }
+nav .container { display: flex; }
+nav ul li { display: inline; margin-right: 10px; font-size: 18px; }
+nav ul li a { color: #E7ECEF; text-decoration: none; }

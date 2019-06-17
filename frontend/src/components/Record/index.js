@@ -39,7 +39,9 @@ class Record extends React.Component {
       <div>
         <Root />
         <div className="Record">
-          <h1>RECORDS</h1>
+          <div className="titleContainer">
+            <h2>RECORDS</h2>
+          </div>
 
           <div>
             <table>

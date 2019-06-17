@@ -1,2 +1,10 @@
-.Round { margin-top: 20px; width: 100%; display: flex; justify-content: center; }
-.Round article { width: 300px; background-color: #CCC; text-align: center; }
+.Round { margin-top: 30px; width: 100%; display: flex; justify-content: center; }
+.Round article { padding: 25px 25px; width: 300px; background-color: #FFF; text-align: center; border: solid 1px #CCC; border-radius: 10px; -webkit-box-shadow: 0px 0px 16px 0px rgba(96, 150, 186, 0.5); -moz-box-shadow: 0px 0px 16px 0px rgba(96, 150, 186, 0.5); box-shadow: 0px 0px 16px 0px rgba(96, 150, 186, 0.5); }
+.Round article h2 { margin-bottom: 50px; color: #6096BA; }
+
+.Round aside { text-align: center; width: 150px; height: 150px; margin-top: 30px; border-radius: 0 10px 10px 0; -webkit-box-shadow: inset -3px 3px 11px 0px rgba(0, 0, 0, 0.08); -moz-box-shadow: inset -3px 3px 11px 0px rgba(0, 0, 0, 0.08); box-shadow: inset -3px 3px 11px 0px rgba(0, 0, 0, 0.08); }
+.Round aside h3 { color: #274C77; }
+.Round aside table { margin: 5px; font-size: 14px; }
+.Round aside table th { border: none; color: #274C77; }
+.Round aside table td { font-size: 13px; }
+

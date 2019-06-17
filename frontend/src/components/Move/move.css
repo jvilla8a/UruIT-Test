@@ -1,0 +1,8 @@
+.Move { text-align: left; }
+.Move h3 { color: #274C77; }
+.Move form .inputContainer { text-align: left; }
+.Move form .inputContainer label { color: #274C77; font-size: 14px; }
+.Move form .inputContainer select { font-size: 16px; width: 100%; height: 30px; border-radius: 5px; margin-bottom: 20px; margin-top: 5px; background-color: #E7ECEF; border: 1px solid #CCC; -webkit-box-shadow: inset -1px 1px 0px 1px rgba(0,0,0,0.15); -moz-box-shadow: inset -1px 1px 0px 1px rgba(0,0,0,0.15); box-shadow: inset -1px 1px 0px 1px rgba(0,0,0,0.15); padding: 0px 15px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.Move form .buttonContainer { width: 100%; display: flex; justify-content: flex-end; }
+
+.button { padding: 8px 20px; background-color: #274C77; color: #E7ECEF; border-radius: 5px; font-weight: bold; font-size: 14px; cursor: pointer;  }

@@ -39,19 +39,19 @@ class Game extends React.Component {
         <div className="Game container">
           <article>
             <h3>Enter Player's name</h3>
-            <hr/>
             <section className="inputSection">
+
               <form onSubmit={ this.handleGameStart }>
-                <div>
+                <div className="inputContainer">
                   <label htmlFor="player1">Player 1 : </label>
-                  <input type="text" name="player1" onChange={this.handleInputChange} />
+                  <input type="text" name="player1" placeholder="Name" onChange={this.handleInputChange} />
                 </div>
-                <div>
+                <div className="inputContainer">
                   <label htmlFor="player2">Player 2 : </label>
-                  <input type="text" name="player2" onChange={this.handleInputChange} />
+                  <input type="text" name="player2" placeholder="Name" onChange={this.handleInputChange} />
                 </div>
                 <div>
-                  <input type="submit" value="Start" />
+                  <input type="submit" value="Start" className="button" />
                 </div>
               </form>
             </section>
