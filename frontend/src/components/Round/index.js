@@ -8,7 +8,12 @@ class Round extends React.Component {
   componentDidMount() {
     let game = JSON.parse(localStorage.game);
 
-    this.setState({ p1Name: `Player 1: ${game.player1}`, p2Name: `Player 2: ${game.player2}` });
+    this.toggleMove = this.toggleMove.bind(this);
+    this.setState({ p1Name: `Player 1: ${game.player1}`, p2Name: `Player 2: ${game.player2}`, firstMove: true });
+  }
+
+  toggleMove() {  
+    this.setState({ firstMove: !this.state.firstMove })
   }
 
   render() {
@@ -19,9 +24,10 @@ class Round extends React.Component {
         <div className="Round container">
           <article>
             <h2> {this.props.title} </h2>
-
-            <Move title={this.state && this.state.p1Name ? this.state.p1Name : "Player 1 Name"} player={"player1"} />
-            <Move title={this.state && this.state.p2Name ? this.state.p2Name : "Player 2 Name"} player={"player2"} />
+            { this.state && this.state.firstMove ? 
+              <Move title={this.state && this.state.p1Name ? this.state.p1Name : "Player 1 Name"} player={"player1"} handler={this.toggleMove} /> :
+              <Move title={this.state && this.state.p2Name ? this.state.p2Name : "Player 2 Name"} player={"player2"} />
+            }
           </article>
           { this.props.title === "Round 2" || this.props.title === "Round 3" ? 
           <aside>

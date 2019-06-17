@@ -39,6 +39,10 @@ class Move extends React.Component {
     
     const history = createBrowserHistory();
     let game  = JSON.parse(localStorage.game);
+
+    
+    if(this.props.handler)
+      this.props.handler();
     
     if(!game.round1 || !game.round1[this.props.player]){
       if(!game.round1)

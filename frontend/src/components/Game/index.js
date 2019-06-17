@@ -15,6 +15,9 @@ class Game extends React.Component {
   handleGameStart (event) {
     event.preventDefault();
 
+    if(!this.state || !this.state.player1 || !this.state.player2)
+      return false;
+
     let playersNames = this.state.player1 && this.state.player2 && { player1: this.state.player1, player2: this.state.player2 }
     localStorage.setItem("game", JSON.stringify(playersNames));
     
