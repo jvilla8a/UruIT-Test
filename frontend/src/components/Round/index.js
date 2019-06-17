@@ -1,65 +1,50 @@
 import React from 'react';
 import Root  from '../Root';
+import Move  from '../Move';
 
 import './round.css'
 
-function Round () {
-  return(
-    <div>
-      <Root />
+class Round extends React.Component {
+  render() {
+    return(
+      <div>
+        <Root />
 
-      <div className="Round container">
-        <article>
-          <h2>Round 1</h2>
-          <hr/>
-          <div>
-            <h3>[Playe1 Name]</h3>
-            <div>
-              <label htmlFor="player1Move">Select Move: </label>
-              <select name="player1Move">
-                <option value="rock">Rock</option>
-                <option value="paper">Paper</option>
-                <option value="Scissors">Scissors</option>
-              </select>
-              <hr/>
-              <button>Send Move</button>
-            </div>
-          </div>
+        <div className="Round container">
+          <article>
+            <h2> {this.props.title} </h2>
+            <hr/>
 
-          <div>
-            <h3>[Playe2 Name]</h3>
-            <div>
-              <label htmlFor="player2Move">Select Move: </label>
-              <select name="player2Move">
-                <option value="rock">Rock</option>
-                <option value="paper">Paper</option>
-                <option value="scissors">Scissors</option>
-              </select>
-              <hr/>
-              <button>Send Move</button>
-            </div>
-          </div>
-        </article>
-        <aside>
-          <h2>Score</h2>
-          <table>
-            <tr>
-              <th>Round</th>
-              <th>Winner</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Player1</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Playe2</td>
-            </tr>
-          </table>
-        </aside>
+            <Move title={"[Player1 Name]"} player={"player1"} />
+            <Move title={"[Player2 Name]"} player={"player2"} />
+          </article>
+          { this.props.title === "Round 2" || this.props.title === "Round 3" ? 
+          <aside>
+            <h2>Score</h2>
+            <table>
+              <tbody>
+                <tr>
+                  <th>Round</th>
+                  <th>Winner</th>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>{JSON.parse(localStorage.game).round1.winner}</td>
+                </tr>
+                { this.props.title === "Round 3" ?
+                  <tr>
+                    <td>2</td>
+                    <td>{JSON.parse(localStorage.game).round2.winner}</td>
+                  </tr> : false
+                }
+              </tbody>
+            </table>
+          </aside>
+          : false }
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Round;
